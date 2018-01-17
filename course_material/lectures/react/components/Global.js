@@ -16,12 +16,12 @@ class Global extends Component {
     fetch(`${BASE_URL}${this.state.query}`, {
       method: 'GET'
     })
-    .then(response => response.json())
-    .then(json => {
-      console.log('book items', json);
-      let { items } = json;
-      this.setState({items});
-    })
+      .then(response => response.json())
+      .then(json => {
+        console.log('book items', json);
+        let { items } = json;
+        this.setState({ items });
+      })
   }
 
   render() {
@@ -33,7 +33,7 @@ class Global extends Component {
             <FormControl
               type="text"
               placeholder="Search for a Book"
-              onChange={event => {this.setState({query: event.target.value})}}
+              onChange={event => this.setState({ query: event.target.value })}
               onKeyPress={event => {
                 if (event.key == "Enter") {
                   this.search()
